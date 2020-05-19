@@ -1,6 +1,6 @@
-import utils from "../node_modules/decentraland-ecs-utils/index"
-import { PianoKey } from "./pianoKey"
-import resources from "./resources"
+import utils from '../node_modules/decentraland-ecs-utils/index'
+import { PianoKey, keys } from './pianoKey'
+import resources from './resources'
 
 // Base scene
 const baseScene = new Entity()
@@ -39,9 +39,11 @@ for (let i = 0; i < whiteKeySounds.length; i++) {
     }),
     Color3.White(),
     whiteKeySounds[i],
-    resources.trigger.triggerWhitePianoKey
+    resources.trigger.triggerWhitePianoKey,
+    i
   )
   whiteKeyXPos += 0.8
+  keys.push(key)
 }
 
 // Black keys
@@ -71,8 +73,10 @@ for (let i = 0; i < blackKeySounds.length; i++) {
     }),
     Color3.Black(),
     blackKeySounds[i],
-    resources.trigger.triggerBlackPianoKey
+    resources.trigger.triggerBlackPianoKey,
+    i + whiteKeySounds.length
   )
+  keys.push(key)
 
   // Skip key
   skipKey++
