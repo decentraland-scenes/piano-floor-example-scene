@@ -6,7 +6,7 @@ export const sceneMessageBus = new MessageBus()
 export let keys: PianoKey[] = []
 
 export class PianoKey extends Entity {
-  material: Material
+  material = new Material()
   onColor = new Color3(1.75, 1.25, 0.0) // Orange glow
   offColor = Color3.Black() // To zero out emissive
   note: number
@@ -23,7 +23,6 @@ export class PianoKey extends Entity {
     engine.addEntity(this)
     this.addComponent(shape)
     this.addComponent(transform)
-    this.material = new Material()
     this.material.albedoColor = color
     this.material.metallic = 0.0
     this.material.roughness = 1.0
