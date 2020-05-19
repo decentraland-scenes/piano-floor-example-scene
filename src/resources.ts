@@ -35,7 +35,6 @@ export default {
     },
   },
   trigger: {
-    triggerShape: new utils.TriggerSphereShape(8, Vector3.Zero()), // Trigger sphere with a radius of 8m
     triggerWhitePianoKey: new utils.TriggerBoxShape(
       new Vector3(0.35, 3, 2),
       new Vector3(0, 0, -1)
