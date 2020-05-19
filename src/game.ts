@@ -80,8 +80,8 @@ for (let i = 0; i < blackKeySounds.length; i++) {
 
   // Skip key
   skipKey++
-  if (skipKey == 7) skipKey = 2
   skipKey % 3 != 0 ? (blackKeyXPos += 0.8) : (blackKeyXPos += 1.6)
+  if (skipKey == 6) skipKey = 1
 }
 
 // Modify player's trigger shape
