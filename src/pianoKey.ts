@@ -6,9 +6,10 @@ export const sceneMessageBus = new MessageBus()
 export let keys: PianoKey[] = []
 
 export class PianoKey extends Entity {
-  material = new Material()
-  onColor = new Color3(1.75, 1.25, 0.0) // Orange glow
-  offColor = Color3.Black() // To zero out emissive
+  
+  material: Material = new Material()
+  onColor: Color3 = new Color3(1.75, 1.25, 0.0) // Orange glow
+  offColor: Color3 = Color3.Black() // To zero out emissive
   note: number
 
   constructor(
