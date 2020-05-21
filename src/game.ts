@@ -7,6 +7,16 @@ const baseScene = new Entity()
 baseScene.addComponent(resources.models.baseScene)
 engine.addEntity(baseScene)
 
+// For transforming the piano
+const scene = new Entity()
+scene.addComponent(
+  new Transform({
+    position: new Vector3(8, 0, 8),
+    rotation: Quaternion.Euler(0, 0, 0),
+  })
+)
+engine.addEntity(scene)
+
 const keyShape = new PlaneShape()
 
 // White keys
@@ -27,13 +37,13 @@ const whiteKeySounds: AudioClip[] = [
   resources.sounds.whiteKeys.b4,
 ]
 
-let whiteKeyXPos = 2.75
+let whiteKeyXPos = -5.55
 
 for (let i = 0; i < whiteKeySounds.length; i++) {
   const key = new PianoKey(
     keyShape,
     new Transform({
-      position: new Vector3(whiteKeyXPos, 0.11, 8),
+      position: new Vector3(whiteKeyXPos, 0.11, 0),
       scale: new Vector3(0.7, 4, 0.5),
       rotation: Quaternion.Euler(90, 0, 0),
     }),
@@ -42,8 +52,9 @@ for (let i = 0; i < whiteKeySounds.length; i++) {
     resources.trigger.triggerWhitePianoKey,
     i
   )
-  whiteKeyXPos += 0.8
+  key.setParent(scene)
   keys.push(key)
+  whiteKeyXPos += 0.8
 }
 
 // Black keys
@@ -60,14 +71,14 @@ const blackKeySounds: AudioClip[] = [
   resources.sounds.blackKeys.aSharp4,
 ]
 
-let blackKeyXPos = 3.15
+let blackKeyXPos = -5.15
 let skipKey = 1
 
 for (let i = 0; i < blackKeySounds.length; i++) {
   const key = new PianoKey(
     keyShape,
     new Transform({
-      position: new Vector3(blackKeyXPos, 0.12, 9),
+      position: new Vector3(blackKeyXPos, 0.12, 1),
       scale: new Vector3(0.45, 2, 0.5),
       rotation: Quaternion.Euler(90, 0, 0),
     }),
@@ -76,6 +87,7 @@ for (let i = 0; i < blackKeySounds.length; i++) {
     resources.trigger.triggerBlackPianoKey,
     i + whiteKeySounds.length
   )
+  key.setParent(scene)
   keys.push(key)
 
   // Skip key
