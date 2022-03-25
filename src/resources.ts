@@ -2,7 +2,7 @@ import * as utils from '@dcl/ecs-scene-utils'
 
 export default {
   models: {
-    baseScene: new GLTFShape('models/baseScene.glb'),
+    baseScene: new GLTFShape('models/baseScene.glb')
   },
   sounds: {
     whiteKeys: {
@@ -19,7 +19,7 @@ export default {
       f4: new AudioClip('sounds/whiteKeys/f4.mp3'),
       g4: new AudioClip('sounds/whiteKeys/g4.mp3'),
       a4: new AudioClip('sounds/whiteKeys/a4.mp3'),
-      b4: new AudioClip('sounds/whiteKeys/b4.mp3'),
+      b4: new AudioClip('sounds/whiteKeys/b4.mp3')
     },
     blackKeys: {
       cSharp3: new AudioClip('sounds/blackKeys/cSharp3.mp3'),
@@ -31,8 +31,8 @@ export default {
       dSharp4: new AudioClip('sounds/blackKeys/dSharp4.mp3'),
       fSharp4: new AudioClip('sounds/blackKeys/fSharp4.mp3'),
       gSharp4: new AudioClip('sounds/blackKeys/gSharp4.mp3'),
-      aSharp4: new AudioClip('sounds/blackKeys/aSharp4.mp3'),
-    },
+      aSharp4: new AudioClip('sounds/blackKeys/aSharp4.mp3')
+    }
   },
   trigger: {
     triggerWhitePianoKey: new utils.TriggerBoxShape(
@@ -42,6 +42,6 @@ export default {
     triggerBlackPianoKey: new utils.TriggerBoxShape(
       new Vector3(0.35, 3, 2),
       Vector3.Zero()
-    ),
-  },
+    )
+  }
 }

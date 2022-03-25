@@ -2,7 +2,7 @@ import * as utils from '@dcl/ecs-scene-utils'
 
 export const sceneMessageBus = new MessageBus()
 
-export let keys: PianoKey[] = []
+export const keys: PianoKey[] = []
 
 export class PianoKey extends Entity {
   material: Material = new Material()
@@ -42,7 +42,7 @@ export class PianoKey extends Entity {
         },
         onCameraExit: () => {
           sceneMessageBus.emit('noteOff', { note: this.note })
-        },
+        }
       })
     )
   }

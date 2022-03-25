@@ -12,7 +12,7 @@ const scene = new Entity()
 scene.addComponent(
   new Transform({
     position: new Vector3(8, 0, 8),
-    rotation: Quaternion.Euler(0, 0, 0),
+    rotation: Quaternion.Euler(0, 0, 0)
   })
 )
 engine.addEntity(scene)
@@ -34,7 +34,7 @@ const whiteKeySounds: AudioClip[] = [
   resources.sounds.whiteKeys.f4,
   resources.sounds.whiteKeys.g4,
   resources.sounds.whiteKeys.a4,
-  resources.sounds.whiteKeys.b4,
+  resources.sounds.whiteKeys.b4
 ]
 
 let whiteKeyXPos = -5.55
@@ -45,7 +45,7 @@ for (let i = 0; i < whiteKeySounds.length; i++) {
     new Transform({
       position: new Vector3(whiteKeyXPos, 0.11, 0),
       scale: new Vector3(0.7, 4, 0.5),
-      rotation: Quaternion.Euler(90, 0, 0),
+      rotation: Quaternion.Euler(90, 0, 0)
     }),
     Color3.White(),
     whiteKeySounds[i],
@@ -68,7 +68,7 @@ const blackKeySounds: AudioClip[] = [
   resources.sounds.blackKeys.dSharp4,
   resources.sounds.blackKeys.fSharp4,
   resources.sounds.blackKeys.gSharp4,
-  resources.sounds.blackKeys.aSharp4,
+  resources.sounds.blackKeys.aSharp4
 ]
 
 let blackKeyXPos = -5.15
@@ -80,7 +80,7 @@ for (let i = 0; i < blackKeySounds.length; i++) {
     new Transform({
       position: new Vector3(blackKeyXPos, 0.12, 1),
       scale: new Vector3(0.45, 2, 0.5),
-      rotation: Quaternion.Euler(90, 0, 0),
+      rotation: Quaternion.Euler(90, 0, 0)
     }),
     Color3.Black(),
     blackKeySounds[i],
@@ -92,8 +92,8 @@ for (let i = 0; i < blackKeySounds.length; i++) {
 
   // Skip key
   skipKey++
-  skipKey % 3 != 0 ? (blackKeyXPos += 0.8) : (blackKeyXPos += 1.6)
-  if (skipKey == 6) skipKey = 1
+  skipKey % 3 !== 0 ? (blackKeyXPos += 0.8) : (blackKeyXPos += 1.6)
+  if (skipKey === 6) skipKey = 1
 }
 
 // Modify player's trigger shape
